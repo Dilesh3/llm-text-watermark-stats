@@ -1,0 +1,13 @@
+# Analysis (everything in analysis/)
+numpy
+scipy
+pandas
+matplotlib
+statsmodels
+tabulate          # markdown tables in the sanity report
+transformers      # GPT-2 tokenizer for the figures (gpt3_tokenizer also works)
+
+# Generation and its tests (wm/); Google Colab already has these
+torch
+tokenizers
+nltk              # only to rebuild data/human_texts.csv from the Brown corpus

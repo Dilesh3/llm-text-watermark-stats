@@ -1,0 +1,23 @@
+loaded 1992 texts (GPT-2, vocab 50257); green counts match the generation file
+PILOT REPORT  model=GPT-2  vocab=50257  γ=0.5  length=200 tokens
+
+group               n  mean green      sd
+human             498      50.4%   0.037
+AI δ=0            498      50.0%   0.035
+AI δ=1            498      69.8%   0.035
+AI δ=2            498      83.8%   0.029
+
+Power (exact binomial) by length:
+                          10    25    50    75   100   150   200   300   400
+δ=1 (70%) z>4         0%    1%    7%   30%   45%   82%   95%  100%  100%
+δ=1 (70%) α=0.05     38%   67%   91%   97%   99%  100%  100%  100%  100%
+δ=2 (84%) z>4         0%   21%   82%   99%  100%  100%  100%  100%  100%
+δ=2 (84%) α=0.05     79%   99%  100%  100%  100%  100%  100%  100%  100%
+
+Recommendations (compare where power is between 20% and 80%):
+  δ=1: lengths with 20–80% power at z>4: [75, 100]
+  δ=2: lengths with 20–80% power at z>4: [25]
+  Chapter 7 p-chart, window 25: an AI window (δ=2) crosses the 3σ limit 62% of the time
+  Chapter 7 p-chart, window 50: an AI window (δ=2) crosses the 3σ limit 99% of the time
+  Chapter 7 p-chart, window 100: an AI window (δ=2) crosses the 3σ limit 100% of the time
+  -> use the smallest window with ≥80% for a sharp, clear spike.

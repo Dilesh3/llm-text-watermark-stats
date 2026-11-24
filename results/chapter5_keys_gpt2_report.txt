@@ -1,0 +1,24 @@
+498 human texts, GPT-2, γ=0.5
+
+1. TEAM KEY
+   Green counts vs Binomial(200, 0.5): mean G 101.3 (expected 100), variance 57.4 (expected 50)
+   Chi-square GOF: χ² = 59.4, df = 30, p = 0.00108
+   False positives at α=0.05: 47/498 = 9.4% (expected 5%; one-proportion test p = 4.75e-05)
+
+2. KEY EFFECT: false-positive rate at α=0.05 over 20 keys
+   raw (textbook test)        mean  6.4%   min  1.4%   max 12.0%
+   repeats counted once       mean  4.6%   min  1.6%   max  8.2%
+   mean z of human texts per key ranges -0.45 to +0.28 (H₀ says 0)
+   at z>4: mean  0.0%   min  0.0%   max  0.2%
+
+3. CAUSE
+   The 50 most common token pairs make up 7.0% of all scored tokens.
+   Under the team key, 54.7% of those tokens are green (fair share 50%).
+   Each pair has ONE colour per key, shared by every text, so texts don't vary
+   independently: the whole corpus is pushed greener or redder together.
+
+4. FIX: calibrate on half the human texts, test on the other half
+   uncalibrated   mean  6.2%   min  1.2%   max 12.4%
+   calibrated     mean  5.3%   min  2.4%   max  8.4%
+
+per-key results written to chapter5_keys_gpt2.csv
